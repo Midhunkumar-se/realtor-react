@@ -2,11 +2,16 @@ import { Link, useNavigate } from "react-router-dom";
 import { FcHome } from "react-icons/fc";
 import "./Profile.scss";
 import { useState } from "react";
-import { getAuth } from "firebase/auth";
+import { getAuth, updateProfile } from "firebase/auth";
+import { toast } from "react-toastify";
+import { doc, updateDoc } from "firebase/firestore";
+import { db } from "../firebase";
 
 export default function Profile() {
   const auth = getAuth();
   const navigate = useNavigate();
+  const [changeDetail, setChangeDetail] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: auth.currentUser.displayName,
     email: auth.currentUser.email,
@@ -17,6 +22,36 @@ export default function Profile() {
   function onLogout() {
     auth.signOut();
     navigate("/");
+  }
+
+  function onChange(e) {
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.id]: e.target.value,
+    }));
+  }
+
+  async function onSubmit() {
+    setIsLoading(true);
+    try {
+      if (auth.currentUser.displayName !== name) {
+        // update display name in firebase auth
+        await updateProfile(auth.currentUser, {
+          displayName: name,
+        });
+
+        // update name in firestore
+
+        const docRef = doc(db, "users", auth.currentUser.uid);
+        await updateDoc(docRef, {
+          name: name,
+        });
+      }
+      toast.success("Profile details updated");
+      setIsLoading(false);
+    } catch (error) {
+      toast.error("Could not update the profile details");
+    }
   }
 
   return (
@@ -31,9 +66,10 @@ export default function Profile() {
               type="text"
               id="name"
               value={name}
-              disabled
+              disabled={!changeDetail}
+              onChange={onChange}
               className={`profile__form-input ${
-                false ? "profile__form-input--modifier" : ""
+                changeDetail ? "profile__form-input--modifier" : ""
               }`}
             />
 
@@ -50,8 +86,20 @@ export default function Profile() {
             <div className="profile__form-links">
               <p className="profile__form-name-change-link">
                 Do you want to change your name?
-                <span className="profile__form-name-change-link-name">
-                  edit
+                <span
+                  onClick={() => {
+                    changeDetail && onSubmit();
+                    setChangeDetail((prevState) => !prevState);
+                  }}
+                  className="profile__form-name-change-link-name"
+                >
+                  {!isLoading && changeDetail ? (
+                    "Apply change"
+                  ) : isLoading ? (
+                    <div className="loader"></div>
+                  ) : (
+                    "Edit"
+                  )}
                 </span>
               </p>
               <p onClick={onLogout} className="profile__form-sign-out">
