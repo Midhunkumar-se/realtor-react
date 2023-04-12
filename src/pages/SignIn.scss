@@ -1,0 +1,214 @@
+.form-section {
+  &__title {
+    margin-top: 1.5rem;
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  &__form-wrapper {
+    display: flex;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-width: 72rem;
+  }
+
+  &__image-wrap {
+    margin-bottom: 3rem;
+
+    @media (min-width: 768px) {
+      margin-bottom: 1.5rem;
+      width: 67%;
+    }
+    @media (min-width: 1024px) {
+      width: 50%;
+    }
+  }
+
+  &__image-wrap > img {
+    width: 100%;
+    border-radius: 1rem;
+    box-shadow: 1px 2px 20px #c5c2c2;
+  }
+
+  &__form-wrap {
+    width: 100%;
+
+    @media (min-width: 768px) {
+      width: 67%;
+    }
+    @media (min-width: 1024px) {
+      margin-left: 5rem;
+      width: 40%;
+    }
+  }
+  &__form-input {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-bottom: 1.5rem;
+    background-color: #ffffff;
+    transition-property: background-color, border-color, color, fill, stroke,
+      opacity, box-shadow, transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    color: #374151;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    width: 100%;
+    border-radius: 0.25rem;
+    border: none;
+    box-shadow: 1px 1px 15px #ded9d9;
+    outline: none;
+    transition: all 0.4s;
+  }
+
+  &__form-input:focus {
+    border: none;
+    box-shadow: 1px 1px 20px #b6b6b6;
+  }
+
+  &__form-input-wrap {
+    position: relative;
+    margin-bottom: 1.5rem;
+  }
+  &__form-input-password {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: #ffffff;
+    transition-property: background-color, border-color, color, fill, stroke,
+      opacity, box-shadow, transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    color: #374151;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    width: 100%;
+    border-radius: 0.25rem;
+    border: none;
+    box-shadow: 1px 1px 15px #ded9d9;
+    outline: none;
+    transition: all 0.4s;
+  }
+
+  &__form-input-password:focus {
+    border: none;
+    box-shadow: 1px 1px 20px #b6b6b6;
+  }
+
+  &__form-input-password-eye {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    cursor: pointer;
+  }
+
+  &__other-detail {
+    display: flex;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    white-space: nowrap;
+    justify-content: space-between;
+
+    @media (min-width: 640px) {
+      font-size: 1.125rem;
+      line-height: 1.75rem;
+    }
+  }
+
+  &__account-signing {
+    margin-bottom: 1.5rem;
+  }
+
+  &__account-signing > a {
+    margin-left: 0.25rem;
+    transition-property: background-color, border-color, color, fill, stroke,
+      opacity, box-shadow, transform;
+    transition-duration: 200ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    color: #dc2626;
+  }
+
+  &__account-signing > a:hover {
+    color: #b91c1c;
+  }
+
+  &__forgot-password > a {
+    transition-property: background-color, border-color, color, fill, stroke,
+      opacity, box-shadow, transform;
+    transition-duration: 200ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    color: #2563eb;
+  }
+
+  &__forgot-password > a:hover {
+    color: #1e40af;
+  }
+
+  &__btn-signing {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
+    background-color: #2563eb;
+    transition-property: background-color, border-color, color, fill, stroke,
+      opacity, box-shadow, transform;
+    transition-duration: 150ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    color: #ffffff;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    width: 100%;
+    border-radius: 0.25rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border: none;
+    cursor: pointer;
+  }
+  &__btn-signing:hover {
+    background-color: #1d4ed8;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+
+  &__border-line {
+    display: flex;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    align-items: center;
+  }
+
+  &__border-line::before {
+    content: "";
+    flex: 110%;
+    border-top-width: 1px;
+    border-color: #d1d5db;
+    border-top-style: solid;
+  }
+  &__border-line::after {
+    content: "";
+    border-top-style: solid;
+    flex: 110%;
+    border-top-width: 1px;
+    border-color: #d1d5db;
+  }
+  &__border-line > p {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    font-weight: 600;
+    text-align: center;
+  }
+}
