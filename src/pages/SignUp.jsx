@@ -1,8 +1,16 @@
 import React, { useState } from "react";
 import "./SignIn.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import { OAuth } from "../components/OAuth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  updateProfile,
+} from "firebase/auth";
+import { db } from "../firebase";
+import { doc, serverTimestamp, setDoc } from "firebase/firestore";
+import { toast } from "react-toastify";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -14,11 +22,40 @@ const SignUp = () => {
 
   const { name, email, password } = formData;
 
+  const navigate = useNavigate();
+
   function onChange(e) {
     setFormData((prevState) => ({
       ...prevState,
       [e.target.id]: e.target.value,
     }));
+    console.log("mount");
+  }
+
+  async function onSubmit(e) {
+    e.preventDefault();
+    try {
+      const auth = getAuth();
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+      updateProfile(auth.currentUser, {
+        displayName: name,
+      });
+      const user = userCredential.user;
+      const formDataCopy = { ...formData };
+      delete formDataCopy.password;
+      formDataCopy.timestamp = serverTimestamp();
+
+      await setDoc(doc(db, "users", user.uid), formDataCopy);
+      toast.success("Sign up was successfull");
+      navigate("/");
+    } catch (error) {
+      toast.error("Something went wrong with the registration");
+    }
     console.log(formData);
   }
 
@@ -33,7 +70,7 @@ const SignUp = () => {
           />
         </div>
         <div className="form-section__form-wrap">
-          <form className="form-section__form">
+          <form onSubmit={onSubmit} className="form-section__form">
             <input
               type="text"
               id="name"
