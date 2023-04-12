@@ -11,6 +11,7 @@ import Offers from "./pages/Offers";
 import { Fragment } from "react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import PrivateRoute from "./components/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -23,7 +24,13 @@ const router = createBrowserRouter([
       },
       {
         path: "profile",
-        element: <Profile />,
+        element: <PrivateRoute />,
+        children: [
+          {
+            index: true,
+            element: <Profile />,
+          },
+        ],
       },
       {
         path: "sign-in",
