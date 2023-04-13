@@ -13,6 +13,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PrivateRoute from "./components/PrivateRoute";
 import { ErrorPage } from "./pages/Error";
+import CreateListing from "./pages/CreateListing";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,16 @@ const router = createBrowserRouter([
           {
             index: true,
             element: <Profile />,
+          },
+        ],
+      },
+      {
+        path: "create-listing",
+        element: <PrivateRoute />,
+        children: [
+          {
+            index: true,
+            element: <CreateListing />,
           },
         ],
       },

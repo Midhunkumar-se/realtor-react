@@ -7,6 +7,7 @@ import { OAuth } from "../components/OAuth";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   function onChange(e) {
     setEmail(e.target.value);
@@ -14,12 +15,15 @@ const ForgotPassword = () => {
 
   async function onSubmit(e) {
     e.preventDefault();
+    setIsLoading(true);
     try {
       const auth = getAuth();
       await sendPasswordResetEmail(auth, email);
       toast.success("Email was sent");
+      setIsLoading(false);
     } catch (error) {
-      toast.error("Could not send reset password");
+      toast.error("Could not send reset password, Enter valid email");
+      setIsLoading(false);
     }
   }
 
@@ -54,7 +58,7 @@ const ForgotPassword = () => {
               </p>
             </div>
             <button className="form-section__btn-signing" type="submit">
-              Send reset Email
+              {isLoading ? "Sending Email..." : "Send reset Email"}
             </button>
             <div className="form-section__border-line">
               <p>OR</p>

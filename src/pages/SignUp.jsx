@@ -57,6 +57,7 @@ const SignUp = () => {
       setIsLoading(false);
     } catch (error) {
       toast.error("Something went wrong with the registration");
+      setIsLoading(false);
     }
   }
 

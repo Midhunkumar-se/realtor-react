@@ -15,6 +15,10 @@
     justify-content: space-between;
     align-items: center;
     max-width: 72rem;
+
+    @media (max-width: 415px) {
+      flex-direction: column;
+    }
   }
 
   &__menus {
@@ -41,5 +45,17 @@
   &__logo > img {
     height: 1.25rem;
     cursor: pointer;
+  }
+}
+
+@media (max-width: 415px) {
+  .header__logo > img {
+    margin-top: 8px;
+  }
+  .header__menus {
+    margin-left: 0px;
+  }
+  .header__menus > a:first-child {
+    margin-left: 0px;
   }
 }
