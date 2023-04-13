@@ -14,6 +14,7 @@ import { toast } from "react-toastify";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -29,11 +30,11 @@ const SignUp = () => {
       ...prevState,
       [e.target.id]: e.target.value,
     }));
-    console.log("mount");
   }
 
   async function onSubmit(e) {
     e.preventDefault();
+    setIsLoading(true);
     try {
       const auth = getAuth();
       const userCredential = await createUserWithEmailAndPassword(
@@ -53,10 +54,10 @@ const SignUp = () => {
       await setDoc(doc(db, "users", user.uid), formDataCopy);
       toast.success("Sign up was successfull");
       navigate("/");
+      setIsLoading(false);
     } catch (error) {
       toast.error("Something went wrong with the registration");
     }
-    console.log(formData);
   }
 
   return (
@@ -118,7 +119,7 @@ const SignUp = () => {
               </p>
             </div>
             <button className="form-section__btn-signing" type="submit">
-              Sign up
+              {isLoading ? "Signing Up..." : "Sign up"}
             </button>
             <div className="form-section__border-line">
               <p>OR</p>

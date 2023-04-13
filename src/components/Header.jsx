@@ -1,8 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Header.scss";
 import { Link, NavLink } from "react-router-dom";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 const Header = () => {
+  const [pageState, setPageState] = useState({
+    path: "sign-in",
+    menuName: "Sign in",
+  });
+  const { path, menuName } = pageState;
+
+  const auth = getAuth();
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setPageState({
+          path: "profile",
+          menuName: "Profile",
+        });
+      } else {
+        setPageState({
+          path: "sign-in",
+          menuName: "Sign in",
+        });
+      }
+    });
+  }, [auth]);
+
   return (
     <div className="header">
       <header className="header__container">
@@ -22,8 +46,8 @@ const Header = () => {
               Offers
             </NavLink>
 
-            <NavLink to="/sign-in" className="header__menu">
-              Sign In
+            <NavLink to={`/${path}`} className="header__menu">
+              {menuName}
             </NavLink>
           </ul>
         </nav>

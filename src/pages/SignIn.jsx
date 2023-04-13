@@ -8,6 +8,7 @@ import { toast } from "react-toastify";
 
 const SignIn = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -24,6 +25,7 @@ const SignIn = () => {
 
   async function onSubmit(e) {
     e.preventDefault();
+    setIsLoading(true);
     try {
       const auth = getAuth();
       const userCredential = await signInWithEmailAndPassword(
@@ -34,6 +36,7 @@ const SignIn = () => {
       if (userCredential.user) {
         navigate("/");
       }
+      setIsLoading(false);
     } catch (error) {
       toast.error("Bad user credentials");
     }
@@ -90,7 +93,7 @@ const SignIn = () => {
               </p>
             </div>
             <button className="form-section__btn-signing" type="submit">
-              Sign in
+              {isLoading ? "Signing In..." : "Sign in"}
             </button>
             <div className="form-section__border-line">
               <p>OR</p>
