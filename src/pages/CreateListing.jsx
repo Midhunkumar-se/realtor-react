@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Spinner from "../components/Spinner";
+import "./CreateListing.scss";
 import { toast } from "react-toastify";
 import {
   getStorage,
@@ -12,12 +13,11 @@ import { v4 as uuidv4 } from "uuid";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebase";
 import { useNavigate } from "react-router-dom";
-import "./CreateListing.scss";
 
 export default function CreateListing() {
   const navigate = useNavigate();
   const auth = getAuth();
-  const [geolocationEnabled, setGeolocationEnabled] = useState(true);
+  const [geolocationEnabled, setGeoLocationEnabled] = useState(false);
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     type: "rent",
@@ -59,6 +59,7 @@ export default function CreateListing() {
     if (e.target.value === "false") {
       boolean = false;
     }
+
     // Files
     if (e.target.files) {
       setFormData((prevState) => ({
@@ -66,7 +67,8 @@ export default function CreateListing() {
         images: e.target.files,
       }));
     }
-    // Text/Boolean/Number
+
+    // Text and Boolean
     if (!e.target.files) {
       setFormData((prevState) => ({
         ...prevState,
@@ -74,6 +76,7 @@ export default function CreateListing() {
       }));
     }
   }
+
   async function onSubmit(e) {
     e.preventDefault();
     setLoading(true);
@@ -82,29 +85,18 @@ export default function CreateListing() {
       toast.error("Discounted price needs to be less than regular price");
       return;
     }
+
     if (images.length > 6) {
       setLoading(false);
-      toast.error("maximum 6 images are allowed");
+      toast.error("Maximum 6 images are allowed");
       return;
     }
+
     let geolocation = {};
     let location;
+
     if (geolocationEnabled) {
-      const response = await fetch(
-        `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${process.env.REACT_APP_GEOCODE_API_KEY}`
-      );
-      const data = await response.json();
-      console.log(data);
-      geolocation.lat = data.results[0]?.geometry.location.lat ?? 0;
-      geolocation.lng = data.results[0]?.geometry.location.lng ?? 0;
-
-      location = data.status === "ZERO_RESULTS" && undefined;
-
-      if (location === undefined) {
-        setLoading(false);
-        toast.error("please enter a correct address");
-        return;
-      }
+      return;
     } else {
       geolocation.lat = latitude;
       geolocation.lng = longitude;
@@ -116,6 +108,7 @@ export default function CreateListing() {
         const filename = `${auth.currentUser.uid}-${image.name}-${uuidv4()}`;
         const storageRef = ref(storage, filename);
         const uploadTask = uploadBytesResumable(storageRef, image);
+
         uploadTask.on(
           "state_changed",
           (snapshot) => {
@@ -161,7 +154,6 @@ export default function CreateListing() {
       imgUrls,
       geolocation,
       timestamp: serverTimestamp(),
-      userRef: auth.currentUser.uid,
     };
     delete formDataCopy.images;
     !formDataCopy.offer && delete formDataCopy.discountedPrice;
@@ -176,6 +168,7 @@ export default function CreateListing() {
   if (loading) {
     return <Spinner />;
   }
+
   return (
     <main className="create-listing">
       <h1 className="create-listing__heading">Create a Listing</h1>
@@ -318,9 +311,9 @@ export default function CreateListing() {
           className="create-listing__form-input"
         />
         {!geolocationEnabled && (
-          <div className="flex space-x-6 justify-start mb-6">
+          <div className="create-listing__form-rent">
             <div className="">
-              <p className="text-lg font-semibold">Latitude</p>
+              <p className="create-listing__form-sub-heading">Latitude</p>
               <input
                 type="number"
                 id="latitude"
@@ -329,11 +322,11 @@ export default function CreateListing() {
                 required
                 min="-90"
                 max="90"
-                className="w-full px-4 py-2 text-xl text-gray-700 bg-white border border-gray-300 rounded transition duration-150 ease-in-out focus:bg-white focus:text-gray-700 focus:border-slate-600 text-center"
+                className="create-listing__form-input"
               />
             </div>
-            <div className="">
-              <p className="text-lg font-semibold">Longitude</p>
+            <div className="" style={{ marginLeft: "1.4rem" }}>
+              <p className="create-listing__form-sub-heading">Longitude</p>
               <input
                 type="number"
                 id="longitude"
@@ -342,7 +335,7 @@ export default function CreateListing() {
                 required
                 min="-180"
                 max="180"
-                className="w-full px-4 py-2 text-xl text-gray-700 bg-white border border-gray-300 rounded transition duration-150 ease-in-out focus:bg-white focus:text-gray-700 focus:border-slate-600 text-center"
+                className="create-listing__form-input"
               />
             </div>
           </div>
