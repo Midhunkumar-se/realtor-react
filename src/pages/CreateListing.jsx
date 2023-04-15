@@ -154,6 +154,7 @@ export default function CreateListing() {
       imgUrls,
       geolocation,
       timestamp: serverTimestamp(),
+      userRef: auth.currentUser.uid,
     };
     delete formDataCopy.images;
     !formDataCopy.offer && delete formDataCopy.discountedPrice;
@@ -322,6 +323,7 @@ export default function CreateListing() {
                 required
                 min="-90"
                 max="90"
+                step="any"
                 className="create-listing__form-input"
               />
             </div>
@@ -335,6 +337,7 @@ export default function CreateListing() {
                 required
                 min="-180"
                 max="180"
+                step="any"
                 className="create-listing__form-input"
               />
             </div>
@@ -456,11 +459,12 @@ export default function CreateListing() {
           <p
             style={{
               color: "rgb(76 74 74)",
-              fontSize: "15px",
+              fontSize: "12px",
               marginBottom: "5px",
             }}
           >
-            The first image will be the cover (max 6)
+            The first image will be the cover (max 6) / image file should be
+            less than 2mb/image file
           </p>
           <input
             type="file"
@@ -480,3 +484,9 @@ export default function CreateListing() {
     </main>
   );
 }
+
+// Good neighbourhood awesome community and the nearby shopping mall and many more.
+// 42.617771
+// -121.801095
+// 153, rosario st, klamath county, oregon state, usa
+// A nice house with lake view
