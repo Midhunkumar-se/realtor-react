@@ -15,6 +15,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import { ErrorPage } from "./pages/Error";
 import CreateListing from "./pages/CreateListing";
 import EditListing from "./pages/EditListing";
+import { Listing } from "./pages/Listing";
 
 const router = createBrowserRouter([
   {
@@ -67,6 +68,10 @@ const router = createBrowserRouter([
       {
         path: "forgot-password",
         element: <ForgotPassword />,
+      },
+      {
+        path: "category/:categoryName/:listingId",
+        element: <Listing />,
       },
       {
         path: "offers",
