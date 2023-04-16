@@ -409,7 +409,7 @@ export default function CreateListing() {
                     className="create-listing__form-rent-month"
                     style={{ width: "100px", fontSize: "1.2rem" }}
                   >
-                    $ / Month
+                    ₹ / Month
                   </p>
                 </div>
               )}
@@ -446,7 +446,7 @@ export default function CreateListing() {
                       className="create-listing__form-rent-month"
                       style={{ width: "100px", fontSize: "1.2rem" }}
                     >
-                      $ / Month
+                      ₹ / Month
                     </p>
                   </div>
                 )}

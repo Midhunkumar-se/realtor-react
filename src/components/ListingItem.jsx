@@ -15,6 +15,7 @@ export default function ListingItem({ listing, id, onEdit, onDelete }) {
           className="listingItem__image"
           loading="lazy"
           src={listing.imgUrls[0]}
+          alt="house"
         />
         <Moment className="listingItem__moment" fromNow>
           {listing.timestamp?.toDate()}
@@ -26,14 +27,14 @@ export default function ListingItem({ listing, id, onEdit, onDelete }) {
           </div>
           <p className="listingItem__name">{listing.name}</p>
           <p className="listingItem__price">
-            $
+            ₹
             {listing.offer
               ? listing.discountedPrice
                   .toString()
-                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                  .replace(/\B(?=(?:(\d\d)+(\d)(?!\d))+(?!\d))/g, ",")
               : listing.regularPrice
                   .toString()
-                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                  .replace(/\B(?=(?:(\d\d)+(\d)(?!\d))+(?!\d))/g, ",")}
             {listing.type === "rent" && " / month"}
           </p>
           <div className="listingItem__wrap listingItem__wrap--increase-margin">
