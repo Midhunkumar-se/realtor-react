@@ -14,6 +14,7 @@ import "react-toastify/dist/ReactToastify.css";
 import PrivateRoute from "./components/PrivateRoute";
 import { ErrorPage } from "./pages/Error";
 import CreateListing from "./pages/CreateListing";
+import EditListing from "./pages/EditListing";
 
 const router = createBrowserRouter([
   {
@@ -42,6 +43,16 @@ const router = createBrowserRouter([
           {
             index: true,
             element: <CreateListing />,
+          },
+        ],
+      },
+      {
+        path: "edit-listing/:listingId",
+        element: <PrivateRoute />,
+        children: [
+          {
+            index: true,
+            element: <EditListing />,
           },
         ],
       },
