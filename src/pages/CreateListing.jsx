@@ -98,8 +98,8 @@ export default function CreateListing() {
     if (geolocationEnabled) {
       return;
     } else {
-      geolocation.lat = latitude;
-      geolocation.lng = longitude;
+      geolocation.lat = +latitude;
+      geolocation.lng = +longitude;
     }
 
     async function storeImage(image) {
