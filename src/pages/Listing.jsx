@@ -113,7 +113,7 @@ export const Listing = () => {
           </p>
           <div className="house-info__details-category-and-offer">
             <p className="house-info__details-category">
-              {listing.type === "rent" ? "Rent" : "Sale"}
+              For {listing.type === "rent" ? "Rent" : "Sale"}
             </p>
             {listing.offer && (
               <p className="house-info__details-offer">
@@ -125,6 +125,10 @@ export const Listing = () => {
               </p>
             )}
           </div>
+          <p style={{ marginTop: "1rem" }}>
+            <span style={{ fontWeight: "600" }}>Posted on:</span>{" "}
+            {`${listing.timestamp.toDate().toDateString()}`}
+          </p>
           <p className="house-info__details-description">
             <span style={{ fontWeight: 600 }}>Description - </span>
             {listing.description}
