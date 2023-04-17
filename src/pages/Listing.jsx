@@ -19,8 +19,10 @@ import * as Scroll from "react-scroll";
 export const Listing = () => {
   const [listing, setListing] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [shareLinkCopied, setShareLinkCopied] = useState(false);
   const params = useParams();
   SwiperCore.use([Autoplay, Navigation, Pagination]);
+
   useEffect(() => {
     async function fetchListing() {
       const docRef = doc(db, "listings", params.listingId);
@@ -31,7 +33,6 @@ export const Listing = () => {
       }
     }
     fetchListing();
-    console.log(listing);
   }, [params.listingId]);
 
   if (loading) {
@@ -64,21 +65,23 @@ export const Listing = () => {
       </Swiper>
       <div
         className="copy-share-link"
-        // onClick={() => {
-        //   navigator.clipboard.writeText(window.location.href);
-        //   setShareLinkCopied(true);
-        //   setTimeout(() => {
-        //     setShareLinkCopied(false);
-        //   }, 2000);
-        // }}
+        onClick={() => {
+          navigator.clipboard.writeText(window.location.href);
+          setShareLinkCopied(true);
+          setTimeout(() => {
+            setShareLinkCopied(false);
+          }, 2000);
+        }}
       >
         <FaShare className="copy-share-link__icon" />
       </div>
-      {false && <p className="copied-share-link">Link Copied</p>}
-      <a smooth="true" href="detail" onClick={scrollTo} className="arrow">
+      {shareLinkCopied && <p className="copied-share-link">Link Copied</p>}
+      <div smooth="true" onClick={scrollTo} className="arrow">
         <span></span>
-      </a>
-      <div title="detail" style={{ height: "100vh" }}></div>
+        <span></span>
+        <span></span>
+      </div>
+      {/* <div title="detail" style={{ height: "90vh" }}></div> */}
     </main>
   );
 };
