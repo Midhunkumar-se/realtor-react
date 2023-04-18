@@ -2,26 +2,32 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./App.scss";
 import Home from "./pages/Home";
 import RootLayout from "./pages/Root";
-import Profile from "./pages/Profile";
-import SignIn from "./pages/SignIn";
-import SignUp from "./pages/SignUp";
-import ForgotPassword from "./pages/ForgotPassword";
-import Offers from "./pages/Offers";
-import { Fragment } from "react";
+import { Fragment, Suspense, lazy } from "react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PrivateRoute from "./components/PrivateRoute";
-import { ErrorPage } from "./pages/Error";
-import CreateListing from "./pages/CreateListing";
-import EditListing from "./pages/EditListing";
-import { Listing } from "./pages/Listing";
-import Category from "./pages/Category";
+import FallbackSpinner from "./components/FallbackSpinner";
+
+const SignIn = lazy(() => import("./pages/SignIn"));
+const SignUp = lazy(() => import("./pages/SignUp"));
+const ForgotPassword = lazy(() => import("./pages/ForgotPassword"));
+const Offers = lazy(() => import("./pages/Offers"));
+const Profile = lazy(() => import("./pages/Profile"));
+const CreateListing = lazy(() => import("./pages/CreateListing"));
+const EditListing = lazy(() => import("./pages/EditListing"));
+const Listing = lazy(() => import("./pages/Listing"));
+const Category = lazy(() => import("./pages/Category"));
+const ErrorPage = lazy(() => import("./pages/Error"));
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
-    errorElement: <ErrorPage />,
+    errorElement: (
+      <Suspense fallback={<FallbackSpinner />}>
+        <ErrorPage />
+      </Suspense>
+    ),
     children: [
       {
         index: true,
@@ -33,7 +39,11 @@ const router = createBrowserRouter([
         children: [
           {
             index: true,
-            element: <Profile />,
+            element: (
+              <Suspense fallback={<FallbackSpinner />}>
+                <Profile />
+              </Suspense>
+            ),
           },
         ],
       },
@@ -43,7 +53,11 @@ const router = createBrowserRouter([
         children: [
           {
             index: true,
-            element: <CreateListing />,
+            element: (
+              <Suspense fallback={<FallbackSpinner />}>
+                <CreateListing />
+              </Suspense>
+            ),
           },
         ],
       },
@@ -53,33 +67,61 @@ const router = createBrowserRouter([
         children: [
           {
             index: true,
-            element: <EditListing />,
+            element: (
+              <Suspense fallback={<FallbackSpinner />}>
+                <EditListing />
+              </Suspense>
+            ),
           },
         ],
       },
       {
         path: "sign-in",
-        element: <SignIn />,
+        element: (
+          <Suspense fallback={<FallbackSpinner />}>
+            <SignIn />
+          </Suspense>
+        ),
       },
       {
         path: "sign-up",
-        element: <SignUp />,
+        element: (
+          <Suspense fallback={<FallbackSpinner />}>
+            <SignUp />
+          </Suspense>
+        ),
       },
       {
         path: "forgot-password",
-        element: <ForgotPassword />,
+        element: (
+          <Suspense fallback={<FallbackSpinner />}>
+            <ForgotPassword />
+          </Suspense>
+        ),
       },
       {
         path: "category/:categoryName/:listingId",
-        element: <Listing />,
+        element: (
+          <Suspense fallback={<FallbackSpinner />}>
+            <Listing />
+          </Suspense>
+        ),
       },
       {
         path: "offers",
-        element: <Offers />,
+        element: (
+          <Suspense fallback={<FallbackSpinner />}>
+            <Offers />
+          </Suspense>
+        ),
       },
       {
         path: "category/:categoryName",
-        element: <Category />,
+        element: (
+          <Suspense fallback={<FallbackSpinner />}>
+            <Category />
+          </Suspense>
+        ),
       },
     ],
   },

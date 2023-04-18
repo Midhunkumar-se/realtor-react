@@ -4,6 +4,7 @@ import { MdLocationOn } from "react-icons/md";
 import { FaTrash } from "react-icons/fa";
 import { MdEdit } from "react-icons/md";
 import "./ListingItem.scss";
+
 export default function ListingItem({ listing, id, onEdit, onDelete }) {
   return (
     <li className="listingItem">

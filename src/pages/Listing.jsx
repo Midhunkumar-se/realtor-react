@@ -26,10 +26,9 @@ import { getAuth } from "firebase/auth";
 import Contact from "../components/Contact";
 import { MapContainer, Popup, Marker, TileLayer } from "react-leaflet";
 
-export const Listing = () => {
+const Listing = () => {
   const auth = getAuth();
   const [listing, setListing] = useState(null);
-  const [postedBy, setPostedBy] = useState(null);
   const [loading, setLoading] = useState(true);
   const [shareLinkCopied, setShareLinkCopied] = useState(false);
   const [contactLandlord, setContactLandlord] = useState(false);
@@ -194,3 +193,5 @@ export const Listing = () => {
     </main>
   );
 };
+
+export default Listing;

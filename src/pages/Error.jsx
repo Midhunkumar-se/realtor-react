@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Error.scss";
 
-export const ErrorPage = () => {
+const ErrorPage = () => {
   return (
     <div className="error">
       <Link to="/" className="error__logo">
@@ -24,3 +24,5 @@ export const ErrorPage = () => {
     </div>
   );
 };
+
+export default ErrorPage;
