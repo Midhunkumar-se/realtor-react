@@ -29,6 +29,7 @@ import { MapContainer, Popup, Marker, TileLayer } from "react-leaflet";
 export const Listing = () => {
   const auth = getAuth();
   const [listing, setListing] = useState(null);
+  const [postedBy, setPostedBy] = useState(null);
   const [loading, setLoading] = useState(true);
   const [shareLinkCopied, setShareLinkCopied] = useState(false);
   const [contactLandlord, setContactLandlord] = useState(false);
@@ -125,6 +126,7 @@ export const Listing = () => {
               </p>
             )}
           </div>
+
           <p style={{ marginTop: "1rem" }}>
             <span style={{ fontWeight: "600" }}>Posted on:</span>{" "}
             {`${listing.timestamp.toDate().toDateString()}`}

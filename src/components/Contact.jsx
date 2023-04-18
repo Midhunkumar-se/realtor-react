@@ -45,6 +45,7 @@ export default function Contact({ userRef, listing }) {
             ></textarea>
           </div>
           <a
+            style={{ cursor: "none" }}
             href={`mailto:${landlord.email}?Subject=${listing.name}&body=${message}`}
           >
             <button className="contact__send-btn" type="button">

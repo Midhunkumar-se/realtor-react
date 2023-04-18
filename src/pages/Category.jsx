@@ -12,11 +12,13 @@ import { toast } from "react-toastify";
 import { db } from "../firebase";
 import "./Offers.scss";
 import ListingItem from "../components/ListingItem";
+import { useParams } from "react-router-dom";
 
-const Offers = () => {
+const Category = () => {
   const [listings, setListings] = useState(null);
   const [loading, setLoading] = useState(true);
   const [lastFetchedListing, setLastFetchListing] = useState(null);
+  const params = useParams();
 
   useEffect(() => {
     async function fetchListings() {
@@ -25,7 +27,7 @@ const Offers = () => {
         // Create query
         const q = query(
           listingRef,
-          where("offer", "==", true),
+          where("type", "==", params.categoryName),
           orderBy("timestamp", "desc"),
           limit(8)
         );
@@ -49,14 +51,14 @@ const Offers = () => {
     }
 
     fetchListings();
-  }, []);
+  }, [params.categoryName]);
 
   async function onFetchMoreListings() {
     try {
       const listingRef = collection(db, "listings");
       const q = query(
         listingRef,
-        where("offer", "==", true),
+        where("type", "==", params.categoryName),
         orderBy("timestamp", "desc"),
         startAfter(lastFetchedListing),
         limit(4)
@@ -80,7 +82,9 @@ const Offers = () => {
 
   return (
     <div className="offer">
-      <h1 className="offer__title">Offers</h1>
+      <h1 className="offer__title">
+        {params.categoryName === "rent" ? "Places for rent" : "Places for sale"}
+      </h1>
       {loading ? (
         <div style={{ display: "flex", justifyContent: "center" }}>
           {" "}
@@ -111,10 +115,15 @@ const Offers = () => {
           )}
         </>
       ) : (
-        <p>There are no current offers</p>
+        <p>
+          There are no current{" "}
+          {params.categoryName === "rent"
+            ? "Places for rent"
+            : "Places for sale"}
+        </p>
       )}
     </div>
   );
 };
 
-export default Offers;
+export default Category;

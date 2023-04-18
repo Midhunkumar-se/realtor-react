@@ -15,9 +15,16 @@
   border-bottom-right-radius: 1.5rem;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  opacity: 0.9;
+
   color: #f1faee;
-  background: #457b9d;
+  background-image: linear-gradient(
+    to left bottom,
+    #4e0146,
+    #560b5f,
+    #591a7a,
+    #542a98,
+    #3e3bb8
+  );
 }
 
 .house-price {
@@ -29,7 +36,14 @@
   border-top-right-radius: 1.5rem;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  opacity: 0.9;
   color: #f1faee;
-  background: #e63946;
+
+  background-image: linear-gradient(
+    to left bottom,
+    #fb0334,
+    #d60032,
+    #b1002e,
+    #8d0428,
+    #6a0721
+  );
 }

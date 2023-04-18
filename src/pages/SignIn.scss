@@ -76,6 +76,14 @@
     box-shadow: 1px 1px 20px #b6b6b6;
   }
 
+  &__form-input--warning {
+    border: 2px solid #e73b3b;
+  }
+
+  &__form-input--warning:focus {
+    border: 2px solid #e73b3b;
+  }
+
   &__form-input-wrap {
     position: relative;
     margin-bottom: 1.5rem;
@@ -211,4 +219,8 @@
     font-weight: 600;
     text-align: center;
   }
+}
+.input--warning {
+  color: #bf0909;
+  margin-left: 3px;
 }

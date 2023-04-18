@@ -2,7 +2,6 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./App.scss";
 import Home from "./pages/Home";
 import RootLayout from "./pages/Root";
-// import { Offers } from "./pages/Offers";
 import Profile from "./pages/Profile";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
@@ -16,6 +15,7 @@ import { ErrorPage } from "./pages/Error";
 import CreateListing from "./pages/CreateListing";
 import EditListing from "./pages/EditListing";
 import { Listing } from "./pages/Listing";
+import Category from "./pages/Category";
 
 const router = createBrowserRouter([
   {
@@ -76,6 +76,10 @@ const router = createBrowserRouter([
       {
         path: "offers",
         element: <Offers />,
+      },
+      {
+        path: "category/:categoryName",
+        element: <Category />,
       },
     ],
   },

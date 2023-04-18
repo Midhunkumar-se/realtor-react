@@ -51,6 +51,7 @@ export default function CreateListing() {
     longitude,
     images,
   } = formData;
+
   function onChange(e) {
     let boolean = null;
     if (e.target.value === "true") {
@@ -116,13 +117,13 @@ export default function CreateListing() {
             // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
             const progress =
               (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-            console.log("Upload is " + progress + "% done");
+            // console.log("Upload is " + progress + "% done");
             switch (snapshot.state) {
               case "paused":
-                console.log("Upload is paused");
+                // console.log("Upload is paused");
                 break;
               case "running":
-                console.log("Upload is running");
+                // console.log("Upload is running");
                 break;
             }
           },
@@ -463,8 +464,8 @@ export default function CreateListing() {
               marginBottom: "5px",
             }}
           >
-            The first image will be the cover (max 6) / image file should be
-            less than 2mb/image file
+            The first image will be the cover (max 6) / image file size should
+            be less than 2mb/image file
           </p>
           <input
             type="file"
@@ -484,9 +485,3 @@ export default function CreateListing() {
     </main>
   );
 }
-
-// Good neighbourhood awesome community and the nearby shopping mall and many more.
-// 42.617771
-// -121.801095
-// 153, rosario st, klamath county, oregon state, usa
-// A nice house with lake view

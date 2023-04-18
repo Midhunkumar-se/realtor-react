@@ -15,6 +15,11 @@ import { toast } from "react-toastify";
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [validate, setValidate] = useState({
+    emailValidate: true,
+    passwordValidate: true,
+    nameValidate: true,
+  });
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -22,6 +27,12 @@ const SignUp = () => {
   });
 
   const { name, email, password } = formData;
+
+  const { emailValidate, passwordValidate, nameValidate } = validate;
+
+  const emailIsValid = email.includes("@") && email.trim() !== "";
+  const passwordIsValid = password.length >= 6 && password.trim() !== "";
+  const nameIsValid = name.length >= 6 && name.trim() !== "";
 
   const navigate = useNavigate();
 
@@ -34,6 +45,24 @@ const SignUp = () => {
 
   async function onSubmit(e) {
     e.preventDefault();
+    if (!emailIsValid) {
+      setValidate((prevState) => ({
+        ...prevState,
+        emailValidate: false,
+      }));
+    }
+    if (!passwordIsValid) {
+      setValidate((prevState) => ({
+        ...prevState,
+        passwordValidate: false,
+      }));
+    }
+    if (!nameIsValid) {
+      setValidate((prevState) => ({
+        ...prevState,
+        nameValidate: false,
+      }));
+    }
     setIsLoading(true);
     try {
       const auth = getAuth();
@@ -56,6 +85,24 @@ const SignUp = () => {
       navigate("/");
       setIsLoading(false);
     } catch (error) {
+      if (emailIsValid) {
+        setValidate((prevState) => ({
+          ...prevState,
+          emailValidate: true,
+        }));
+      }
+      if (passwordIsValid) {
+        setValidate((prevState) => ({
+          ...prevState,
+          passwordValidate: true,
+        }));
+      }
+      if (nameIsValid) {
+        setValidate((prevState) => ({
+          ...prevState,
+          nameValidate: true,
+        }));
+      }
       toast.error("Something went wrong with the registration");
       setIsLoading(false);
     }
@@ -73,28 +120,47 @@ const SignUp = () => {
         </div>
         <div className="form-section__form-wrap">
           <form onSubmit={onSubmit} className="form-section__form">
+            {!nameValidate && (
+              <span className="input--warning">
+                *name length should be greater than or equal to 3
+              </span>
+            )}
             <input
               type="text"
               id="name"
               value={name}
               onChange={onChange}
               placeholder="Full name"
-              className="form-section__form-input"
+              className={`form-section__form-input ${
+                !nameValidate ? "form-section__form-input--warning" : ""
+              }`}
             />
+            {!emailValidate && (
+              <span className="input--warning">*this is not a valid email</span>
+            )}
             <input
               type="email"
               id="email"
               placeholder="Email address"
-              className="form-section__form-input"
+              className={`form-section__form-input ${
+                !emailValidate ? "form-section__form-input--warning" : ""
+              }`}
               value={email}
               onChange={onChange}
             />
+            {!passwordValidate && (
+              <span className="input--warning">
+                *password length should be greater than or equal to 6
+              </span>
+            )}
             <div className="form-section__form-input-wrap">
               <input
                 type={showPassword ? "text" : "password"}
                 id="password"
                 placeholder="Password"
-                className="form-section__form-input-password"
+                className={`form-section__form-input ${
+                  !passwordValidate ? "form-section__form-input--warning" : ""
+                }`}
                 onChange={onChange}
                 value={password}
               />
