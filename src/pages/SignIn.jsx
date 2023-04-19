@@ -93,14 +93,47 @@ const SignIn = () => {
                 <Link to="/forgot-password">Forgot password?</Link>
               </p>
             </div>
-            <button className="form-section__btn-signing" type="submit">
-              {isLoading ? "Signing In..." : "Sign in"}
-            </button>
+            {isLoading ? (
+              <button
+                disabled
+                className="form-section__btn-signing"
+                type="submit"
+                style={{ cursor: "default", backgroundColor: "#86a1da" }}
+              >
+                Signing In...
+              </button>
+            ) : (
+              <button className="form-section__btn-signing" type="submit">
+                Sign In
+              </button>
+            )}
             <div className="form-section__border-line">
               <p>OR</p>
             </div>
             <OAuth />
           </form>
+          <div className="form-section__border-line"></div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              width: "100%",
+            }}
+          >
+            <div>
+              <span style={{ display: "inline-block", fontWeight: "600" }}>
+                Demo user email:
+              </span>{" "}
+              demo@gmail.com
+            </div>
+            <div>
+              <span style={{ display: "inline-block", fontWeight: "600" }}>
+                Demo user password:
+              </span>{" "}
+              123456
+            </div>
+          </div>
         </div>
       </div>
     </section>

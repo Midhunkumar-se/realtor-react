@@ -32,7 +32,7 @@ const SignUp = () => {
 
   const emailIsValid = email.includes("@") && email.trim() !== "";
   const passwordIsValid = password.length >= 6 && password.trim() !== "";
-  const nameIsValid = name.length >= 6 && name.trim() !== "";
+  const nameIsValid = name.length >= 3 && name.trim() !== "";
 
   const navigate = useNavigate();
 
@@ -185,9 +185,23 @@ const SignUp = () => {
                 <Link to="/forgot-password">Forgot password?</Link>
               </p>
             </div>
-            <button className="form-section__btn-signing" type="submit">
-              {isLoading ? "Signing Up..." : "Sign up"}
-            </button>
+            {/* <button className="form-section__btn-signing" type="submit">
+              {isLoading ? "Signing In..." : "Sign up"}
+            </button> */}
+            {isLoading ? (
+              <button
+                disabled
+                className="form-section__btn-signing"
+                type="submit"
+                style={{ cursor: "default", backgroundColor: "#86a1da" }}
+              >
+                Signing In...
+              </button>
+            ) : (
+              <button className="form-section__btn-signing" type="submit">
+                Sign up
+              </button>
+            )}
             <div className="form-section__border-line">
               <p>OR</p>
             </div>

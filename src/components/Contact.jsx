@@ -31,7 +31,7 @@ export default function Contact({ userRef, listing }) {
             Contact <span style={{ fontWeight: "600" }}>{landlord.name}</span>{" "}
             for the{" "}
             <span style={{ fontWeight: "600" }}>
-              {`: ${listing.name.toLowerCase()}`}
+              {` ${listing.name.toLowerCase()}`}
             </span>
           </p>
           <div className="contact__textarea-wrap">

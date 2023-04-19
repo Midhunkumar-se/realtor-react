@@ -145,7 +145,7 @@ export default function Profile() {
                   {!isLoading && changeDetail ? (
                     "Apply change"
                   ) : isLoading ? (
-                    <div className="loader"></div>
+                    <div className="loader--little"></div>
                   ) : (
                     "Edit"
                   )}
@@ -165,7 +165,7 @@ export default function Profile() {
         </div>
       </section>
       <div className="user-listings-section">
-        {listIsLoading && <div className="loader loader--big"></div>}
+        {listIsLoading && <div className="loader"></div>}
         {!listIsLoading && listings.length > 0 && (
           <>
             <h2 className="user-listings-section__header">My Listings</h2>
