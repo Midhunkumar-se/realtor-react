@@ -9,19 +9,20 @@
   </p>
 </p>
 
-<p align="center">Universal online real estate market for everyone! Realtor allows users to find there dream homes or rental property and also it allows users to list there property for selling and renting.</p>
+<p align="center">Universal online real estate market for everyone! Realtor app allows users to find there dream homes or rental properties, and it also allows users to list their properties for rent or sale.</p>
 
 ## ✨ Features
 
-- Team management
-- Statistics
-- User assignement
-- Comment reactions
-- Ticket labels
-- Ticket history
-- Role based organisation
-- Change tracker 
-- Mail service
+- Create a property listing
+- Delete or edit listing property
+- upload images of property
+- Edit profile name
+- Reset password
+- separate pages for offer,rent and sale
+- leaflet geolocation map
+- Authentication using google service
+- Fully responsive 
+- Single page application 
 
 ## Tech Stack
 
@@ -38,33 +39,27 @@
   In order for those projects to work, you'll need to have: <br/>
   <ul>
   <li>
-    An IDE of your choice, but I'd really recommand Visual Studio 2019. Community version would be 100% fine. If you do not own it yet, take a look
-    <a href="https://visualstudio.microsoft.com/fr/"> here </a>.
+    An IDE of your choice, but I'd really recommand Visual Studio code. If you do not own it yet, take a look
+    <a href="https://code.visualstudio.com/"> here </a>.
   </li>
-    <li>
-      An instance of SQL server installed. If you need help with that, here's a <a href="https://computingforgeeks.com/install-sql-server-developer-edition-on-windows-server/">cool guide</a>. 
-    </li>
-    <li>
-    The .Net 5 (<a href="https://dotnet.microsoft.com/download/dotnet/5.0">Click here!</a> )framework installed. 
-    </li>
   </ul>
 
 ### Step 1: Clone the repo
-Clone the repo locally by doing -
-
+- Either clone the repo or download the app and open the folder in the cli
+- To clone the repo locally by doing -
 ```sh
-git clone https://github.com/heliosCreation/BugsTracker.git
+git clone https://github.com/Midhunkumar-se/realtor-react.git
 ```
 
-### Step 2: Set the data store
-  The application will make use of a default store, so, before we can use it, we'll have to instantiate it. The migrations being already ready, you'll only have to Update the database <br/>
-  To do so, open your package manager, select the persistence Project and type: 
-  
- ```bash
-Update-database
-```
+### Step 2: Install dependencies
+  - Install all dependencies using the `npm install` command
+  - To do so, open your IDE, select the persistence Project and open the terminal, type `npm install` 
 
-
+### Step 3: Setup firebase
+- Go to firebase app, create a Firebase project and register your app
+- Install the SDK and initialize Firebase, take a look at the documentation <a href="https://firebase.google.com/docs/web/setup"> here </a>.
+- Don't use my `firebase.js` file, which is inside `src` folder, because my firebase configuration is different from yours, please read the documentation mentioned in 2nd point.
+- Start the web server using the `npm start` command. The app will be served at http://localhost:3000/
 
 #### And you are good to go
 
