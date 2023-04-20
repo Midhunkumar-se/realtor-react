@@ -66,153 +66,182 @@ git clone https://github.com/Midhunkumar-se/realtor-react.git
 
 
 # Application presentation and flow:
-## I - Authentication
-Since the core application is protected through authentication and authorization, the first page you will directed to will be the login page
-<img src="https://user-images.githubusercontent.com/71494857/163155466-6dd57559-3d32-4ad6-924c-c7a123dd4fe9.PNG">
+## I - Home Page
+When you visit the Realtor application, the first page you will directed to the home page of the application.
+<img src="readme-images/2-home/homePage.png">
 
-If you do not have an account yet, you can go through the registration process and wait for the confirmation mail. <br/>
-But registering itself won't give you access to the application yet, you will to wait for the admin approval.
+- If you do not have an account, you will be able to access the <b> home page </b>,<b> offer page</b>,<b> rent page</b>,<b> sale page</b>, <b> sign-in page</b> and <b> listing page of all listed cards</b>. 
+- On the home page header, you can see the app logo on the left side and three menus on the far right side - <b>home</b>,<b> offer</b>, and <b>sign-in</b>.
+- If you have an account and logged in to that account, the <b>sign-in</b> option will be replaced with a <b>profile</b> option, which you will see later in this documentation.
+- Below the menu header, There is a wide image along with the name of the respective house on the top left side of that image, and the cost of the respective house on the bottom left of that image. 
+- If you click on that image, you will be redirected to the <b>listing page</b>(you will see later in this section) of that clicked image.
+
+### Offers
+- Below the wider larger image, you can see a list of <b> recent offers </b> house cards.
+- If you click on <b>"Show more offers"</b> or <b>"offer"</b> (marked with a red border), you will be redirected to the offers page.
 <kvb>
-  <img src="https://user-images.githubusercontent.com/71494857/163165580-12db8b4f-5d18-4340-9e53-0dee143407d5.PNG">
+  <img src="readme-images/2-home/homePageOfferListing.png" height=60%>
+  <img src="readme-images/2-home/offerPage.png" height=60%>
 </kvb>
-Alternatively, if you don't want to go throuh the whole process of creating an identity, demo user representing each application's role are also available. The catch
-being that you won't be able to modify any data on the server with those users:
-<img src="https://user-images.githubusercontent.com/71494857/163156031-5ac1576e-53a2-4540-a4b7-03e7942ec637.PNG">
+
+### Rent and sell category
+- The same applies to the <b>"Places for Rent"</b> and <b>"Places for Sale"</b> sections located below the recent offers list in home page.
+<kvb>
+  <img src="readme-images/2-home/homePageSaleLisitng.png" height=60%>
+  <img src="readme-images/2-home/placesForSalePage.png" height=60%>
+</kvb>
+<kvb>
+  <img src="readme-images/2-home/homePageRentLisitng.png" height=60%>
+  <img src="readme-images/2-home/placesForRentPage.png" height=60%>
+</kvb>
+
+## II - Listing Page
+- If you click one of the listed house cards in the application, you will be directed to the listed card detail page.
+- On the top right of the image, you will see a <b>copy link button </b>(marked with a red border). You can click it to copy the URL of that listed page and share it on social media or other places.
+- Below that image, you will see a <b>down arrow </b>(marked with a red border). Clicking on it will show you the details of the house and its location on the map.
+<kvb>
+<img src="readme-images/2-home/houseListingCopy.png" height=60%>
+  <img src="readme-images/2-home/houseListingPage.png" height=60%>
+</kvb>
+
+### Details of listed card
+<b>1st row</b> - Name of that house along with price of the house. </br>
+<b>2nd row</b> - Address of that house. </br>
+<b>3rd row</b> - First column is category whether house is for sale or rent 2nd column is dicount price. </br>
+<b>4th row</b> - The date of the listed card was posted. </br>
+<b>5th row</b> - Description of that house. </br>
+<b>6th row</b> - Facilities of that house. </br>
+<b>7th row</b> - Contact landlord button. </br>
+<kvb>
+<img src="readme-images/2-home/houseListingDetails.png" height=60%>
+</kvb>
+- When you click that <b>7th row</b> button you will see landlord name in bold text and the house title in bold text, below that text area input and below text area input you see send message button (all marked in red border).
+<kvb>
+<img src="readme-images/2-home/houseListingContact.png" height=60%>
+</kvb>
+
+-When you click that send message button you will redirected to your default email provider in your system along with message you written in that text area and email of that landlord.
+
+<kvb>
+<img src="readme-images/2-home/houseListingDefaultEmail.png" height=60%>
+</kvb>
+
+- Both authenticated and unauthenticated users can access the above features (both Home Page section and Listing Page section).
 <br/>
 
-# II - The application :fire:
+## III - Authentication
 
-<br/>
-
-## A - Home Page
-Upon successful authentication, you will be redirected to the main page. As for the demo, I decided to register as the admin to display all the features available. 
-Here, it adds the User management, and system logs tabs. You have the choice to fold the sidebar for a better view if you decide so.
+Since the core application is protected through authentication and authorization,If you click <b>Sign in</b> link in header menu, you will directed to <b>Sign in</b> page. 
+- If you do not have an account yet,go through registation process or you can use <b>Demo user email and password</b> which is below "continue with Google" button.
+- And also you can register with your Gmail account.
 <kbd>
-  <img alt="Home page" src="https://user-images.githubusercontent.com/71494857/163367084-a66ca5a0-0d35-475d-b555-e67cba793972.jpg"/>
+  <img alt="Home page" src="readme-images/1-authentication/signInPage.png"/>
+  <img alt="Home page" src="readme-images/1-authentication/SignUpPage.png"/>
 </kbd>
 
-The upper part of the page will be in charge to display the projects while the lower part will display ticket related statistics to get an immediate idea of the state of the organization.
+### Forgot Password
+If you forgot password click <b>forgot password</b> link in signIn Page or signUp Page you will directed to forgot password page.
+- Write valid email on that input, change password link will send to your email and change password.
+<kbd>
+  <img alt="Home page" src="readme-images/1-authentication/forgotPasswordPage.png"/>
+  <img alt="Home page" src="readme-images/1-authentication/6-resetPassword/resetPassEmailSend.png"/>
+  <img alt="Home page" src="readme-images/1-authentication/6-resetPassword/resetPassEmailReceived.png"/>
+  <img alt="Home page" src="readme-images/1-authentication/6-resetPassword/resetPassReceEmail.png"/>
+  <img alt="Home page" src="readme-images/1-authentication/6-resetPassword/resettingPass.png"/>
+  <img alt="Home page" src="readme-images/1-authentication/6-resetPassword/resettingPassSuccess.png"/>
+</kbd>
 <br/>
-## B - Project
 
-#### Creation
-From the home page, an admin can create new project to work with through the organization and assign a team to it. Only the users linked to this project will have access to it and its tickets.
+## III - Profile Page
+
+After Successfully logged in you directed to <b>Home page</b> and in header menu <b>Sign in</b> link changed to <b>Profile</b> link.
 <kbd>
-  <img src="https://user-images.githubusercontent.com/71494857/163176737-fdfed0b0-4297-4a23-85d9-7053f7c08b90.jpg"/>
-<kbd>
-  
-<br/>
-  
-#### Update / Delete
-  
-  <br/>
-From the same page, by hitting the triple dots in the action section of the table, you are able to update or delete the projects. 
-The update being pretty similar in term of UI to the creation, no sreenshot will be provided. The deletion is fairly different.
-Upon using the corresponding button, you will be prompted with a modal asking you to confirm your action. Deleting a project will as well delete every ticket linked to the project.
-<kbd>
-  <img src="https://user-images.githubusercontent.com/71494857/163179821-b7b5d687-22fe-45e7-9448-96a8d4157597.PNG"/>
+  <img src="readme-images/3-project/1-creation/afterLoginMenProfile.png"/>
+</kbd>
+ - After clicking <b>Profile </b> link you directed to <b>My Profile page</b>
+ - In profile page you see your name and email, below that you see edit link (used to edit your profile name) and signout link(used to logout from the application).
+ - Below edit link and signout link, you see <b>"Sell or rent your home"</b> button to create listing.
+ - Below that button you see <b>"My Listing"</b> which is list of house cards created by you(who is authenticated into application).
+ <kbd>
+  <img src="readme-images/3-project/1-creation/profilePage.png"/>
+  <img src="readme-images/3-project/1-creation/profilePageMyListing.png"/>
 </kbd>
 
-  <br/>
-  
-## C - Tickets
-  
-  <br/>
-Upon clicking one of the purple project name, you will be taken to the tickets linked to the projects. They are sorted from the newest to the oldest and can be access by performing query corresponding to any of the fields presents in the table below.
-  <br/>
-  
+### Create Listing
+
+After clicking <b>"Sell or rent your home"</b> button in profile page.
+ <kbd>
+  <img src="readme-images/3-project/1-creation/rentOrSellBtn.png"/>
+</kbd><br/>
+
+- You will directed to <b>"Create Listing page"</b>.
+<b>1st row</b> - Click the button according to whether you are going to sell or rent your house.</br>
+<b>2nd row</b> - Enter the name.</br>
+<b>3rd row</b> - Enter the number of bedrooms and bathrooms.</br>
+<b>4th row</b> - Click the button to indicate whether a parking spot exists or not.</br>
+<b>5th row</b> - Click the button to indicate whether the home is furnished or not.
 <kbd>
-  <img width="959" alt="TicketList" src="https://user-images.githubusercontent.com/71494857/163184883-88013069-a394-43a9-87ee-133f3b5ba5b5.PNG">
-</kbd>
-  
-<br/>
-  
-  #### Create
-  
-<br/>
-Clicking on the blue "New Ticket" button will open a modal with two tabs allowing you to create the specific fields of your new ticket and assign the developers that will work on it. 
-  <br/>
-  
-<kbd>
-  <img alt="Ticket creation" src="https://user-images.githubusercontent.com/71494857/163187126-75ba49e8-8689-40e5-a6ce-20f9283b24e1.jpg"/>
-</kbd>
-  
-<br/>
-  
-### Update / Delete
-  
-  <br/>
-Once again, by clicking on the three dots, you will gain access to the update and delete modal. The flow of updating a ticket is again very similar to the creation. Choosing the "Delete" option will prompt you with a modal asking for confirmation. 
-<br/>
-  
-### Details
-If you choose to click on the ticket name, rendered in purple in the table, you will access the ticket details.<br/>
-Those details are divided in 4 categories:
-  - <ins>Description</ins>: A description of the tickets and its necessities.
-  - <ins>Comments</ins>: Let's you discuss with the members of the ticket.
-  - <ins>Team</ins>: Show the other developers assigned to the ticket and the project manager.
-  - <ins>History</ins>: Give information about the ticket creation and each update it when through. 
-<br/>
-  
-  <kbd>
-      <img alt="Ticket details" src="https://user-images.githubusercontent.com/71494857/163348938-1a407283-b157-4d5f-945e-192e9a35d7e8.jpg"/>
-  <img alt="Ticket details" src="https://user-images.githubusercontent.com/71494857/163348937-2ed46a2f-9923-48a2-807b-dc3e45b2874f.jpg"/>   
-  </kbd>
-<br/>
-  
-### Assigned tickets
-On the left hand side resides the main tabs of the application. If a user click on the ticket tab, it will take him to a page holding all ticket relatid to him/her.
-The way tickets would be fetch will depend on the role assigned to the user:
-  - <ins>Admin:</ins> Will fetch all the tickets of the system. Has the possibility to filter the result down to the tickets he/she created.
-  - <ins>Project Manager:</ins> Will fetch all the tickets linked to the projects the PM is assigned to. 
-  - <ins>Developer</ins>: Will fetch all the tickets they are assigned to.
-  - <ins>Submitter</ins>: Will fetch all the tickets they created.
-  
-  <br/>
-  
-  <kbd>
-    <img width="959" alt="TicketByUser" src="https://user-images.githubusercontent.com/71494857/163365177-0b108c35-fd51-4875-966f-50b90b83dda1.PNG">
-  </kbd>
-  
-## C - User Management 
-If the user is logged in as an Admin, he/she will have the option to click on the User management tab. <br/>
-This page will fetch all the user in the system, display their name, email and roles, and allow the admin to perform diverse operations.
-
-  <kbd>    <img alt="User management" src="https://user-images.githubusercontent.com/71494857/163371145-d520743f-7d50-4d8b-8423-2ec7442bfff2.PNG"/></kbd>
-
-  
-
-  By clicking on the triple dot of each row, the admin will be able to perform three type of action: 
-  
-### Manage role
-Each user of the system can and should be associated to a role. That's the responsability of the admin to assign and modify said roles. <br/> Clicking on the manage role button will result in the display of the bellow modal. All that will be left will to click and validate your choice.
-
-<kbd>
-<img width="943" alt="Role management" src="https://user-images.githubusercontent.com/71494857/163376915-f344f5a3-164d-46b0-a5d8-de989352f0cc.PNG"/>
+<img src="readme-images/3-project/1-creation/createListing-1.png"/>
 </kbd>
 
-  ### Lock / Unlock user
-Users can be both locked and unlocked from the system. Still by clicking the triple dots the admin will be able to access the below modal. If the user is locked, the option will be defaulted to unlock and vice-versa.
+<b>6th row</b> - Enter the address of the house.</br>
+<b>7th row</b> - Enter the latitude and longitude of that address(in 6th row) you can find in Google map.</br>
+<b>8th row</b> - Enter the description of the house.
 <kbd>
-  <img alt="Lock and unlock" src="https://user-images.githubusercontent.com/71494857/163384768-02246056-5a4e-403f-abc1-e19d52793112.jpg"/>
-  </kbd>
-  
-### Delete user
-  
-Finally, the admin might want to remove permanently somebody from the organization. If he/she wish to do so, the triple dots also give access to a delete user modal. He/She, will be asked for confirmation and will then be able to validate the action.
+<img src="readme-images/3-project/1-creation/createListing-2.png"/>
+</kbd>
 <kbd>
-<img width="959" alt="DeleteUser" src="https://user-images.githubusercontent.com/71494857/163405273-970d5d9e-eb7a-4c5c-9e40-60a382e491b2.PNG">  
+<img src="readme-images/3-project/1-creation/googleMap.png"/>
+</kbd> 
+
+<b>9th row</b> - Click the button to indicate whether you will provide an offer. If you provide an offer, the <b>11th row</b> will appear; otherwise, it will not. <br/>
+<b>10th row</b> - Regular price of your home. If you <b>Rent</b> your home "\month" will be displayed.</br>
+<b>11th row</b> - Discounted price of your home. If you <b>Rent</b> your home "\month" will be displayed.</br>
+<b>12th row</b> - Upload the images(maximun 6 and each image file size should be less than 2mb).</br>
+<b>13th row</b> - Click this button to create listing.</br>
+<kbd>
+<img src="readme-images/3-project/1-creation/createListing-3.png"/>
+<img src="readme-images/3-project/1-creation/rentPriceMonth.png"/>
+</kbd>
+<br/>
+- Then you will redirected to you created <b>Listing page</b>
+- And created house listing card add to <b>My Listing</b> in <b>Profile page</b>
+<kbd>
+<img src="readme-images/3-project/1-creation/listingCreated.png"/>
+<img src="readme-images/3-project/1-creation/listingDetails.png"/>
 </kbd>
 
-## D - Change Tracker
-On top of tracking the history of the tickets in their Details modal, the application is keeping a track of most of interaction operated in the server. <br/>
-Those change are prettyfied to human readable data and displayed in form of a table. Each column of the table is queryable to allow the admin to perform
-a precise search through multiple keywords.
+### Delete Listing
 
-  <kbd>
-<img width="945" alt="Change" src="https://user-images.githubusercontent.com/71494857/163547565-e02f914b-2ebb-4d41-b3c9-b77dc88d08a9.PNG">
-  </kbd>
-  
+In <b>My Listing</b> list you can <b>edit</b> and <b>delete</b> that listings. <br/>
+- In <b>My Listing</b>, on the first row and second column card, you will see a delete button marked with a red border. It is located in the bottom left corner.<br/>
+<kbd>
+<img src="readme-images/3-project/2-delete/deleteListing.png"/>
+</kbd>
+<br/>
+
+- Clicking on that button you get warning alert "Are you sure want to delete?", if you click "Ok" button that house listing card will be deleted.
+<kbd>
+<img src="readme-images/3-project/2-delete/deleteListingNotification.png"/>
+<img src="readme-images/3-project/2-delete/listingDeleted.png"/>
+</kbd>
+
+### Edit Listing
+
+In <b>My Listing</b> list you can <b>edit</b> and <b>delete</b> that listings. <br/>
+- In <b>My Listing</b>, on the first row and third column card, you will see a <b>pencil</b> button marked with a red border. It is located in the bottom left corner.<br/>
+<kbd>
+<img src="readme-images/3-project/3-edit/editListing.png"/>
+</kbd>
+<br/>
+
+- Clicking on that button you will directed to <b>Edit Listing</b> page. <b>Edit Listing</b> process is exact same as <b>Create Listing</b>.
+<kbd>
+<img src="readme-images/3-project/3-edit/editListingPage.png"/>
+<img src="readme-images/3-project/3-edit/editListingNotificationSuccess.png"/>
+</kbd>
+
+
   ##### And that wraps it up ! 
   
   ## Author
