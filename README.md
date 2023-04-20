@@ -213,7 +213,7 @@ After clicking <b>"Sell or rent your home"</b> button in profile page.
 
 ### Delete Listing
 
-In <b>My Listing</b> list you can <b>edit</b> and <b>delete</b> that listings. <br/>
+In <b>'My Listing'</b> list you can <b>edit</b> and <b>delete</b> those listings.<br/>
 - In <b>My Listing</b>, on the first row and second column card, you will see a delete button marked with a red border. It is located in the bottom left corner.<br/>
 <kbd>
 <img src="readme-images/3-project/2-delete/deleteListing.png"/>
