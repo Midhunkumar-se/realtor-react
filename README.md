@@ -174,7 +174,7 @@ After clicking <b>"Sell or rent your home"</b> button in profile page.
   <img src="readme-images/3-project/1-creation/rentOrSellBtn.png"/>
 </kbd><br/>
 
-- You will directed to <b>"Create Listing page"</b>.
+- You will directed to <b>"Create Listing page"</b>.<br/>
 <b>1st row</b> - Click the button according to whether you are going to sell or rent your house.</br>
 <b>2nd row</b> - Enter the name.</br>
 <b>3rd row</b> - Enter the number of bedrooms and bathrooms.</br>
