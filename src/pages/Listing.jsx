@@ -63,7 +63,7 @@ const Listing = () => {
         pagination={{ type: "progressbar" }}
         effect="fade"
         modules={[EffectFade]}
-        autoplay={{ delay: 3000 }}
+        autoplay={{ delay: 2000 }}
       >
         {listing.imgUrls.map((url, index) => (
           <SwiperSlide key={index}>
