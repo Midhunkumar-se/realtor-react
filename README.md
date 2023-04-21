@@ -174,7 +174,7 @@ After clicking <b>"Sell or rent your home"</b> button in profile page.
   <img src="readme-images/3-project/1-creation/rentOrSellBtn.png"/>
 </kbd><br/>
 
-- You will directed to <b>"Create Listing page"</b>.<br/>
+- You will be directed to <b>"Create Listing page"</b>.<br/>
 <b>1st row</b> - Click the button according to whether you are going to sell or rent your house.</br>
 <b>2nd row</b> - Enter the name.</br>
 <b>3rd row</b> - Enter the number of bedrooms and bathrooms.</br>
@@ -195,10 +195,10 @@ After clicking <b>"Sell or rent your home"</b> button in profile page.
 </kbd> 
 
 <b>9th row</b> - Click the button to indicate whether you will provide an offer. If you provide an offer, the <b>11th row</b> will appear; otherwise, it will not. <br/>
-<b>10th row</b> - Regular price of your home. If you <b>Rent</b> your home "\month" will be displayed.</br>
-<b>11th row</b> - Discounted price of your home. If you <b>Rent</b> your home "\month" will be displayed.</br>
+<b>10th row</b> - Regular price of your home. If you want to <b>rent</b> out your home, the <b>"\month"</b> will be displayed next to <b>regular price</b> input box.</br>
+<b>11th row</b> - Discounted price of your home. If you want to <b>rent</b> out your home, the <b>"\month"</b> will be displayed next to <b>Discounted price</b> input box.</br>
 <b>12th row</b> - Upload the images(maximun 6 and each image file size should be less than 2mb).</br>
-<b>13th row</b> - Click this button to create listing.</br>
+<b>13th row</b> - Click this button to create a listing.</br>
 <kbd>
 <img src="readme-images/3-project/1-creation/createListing-3.png"/>
 <img src="readme-images/3-project/1-creation/rentPriceMonth.png"/>
@@ -220,7 +220,7 @@ In <b>'My Listing'</b> list you can <b>edit</b> and <b>delete</b> those listings
 </kbd>
 <br/>
 
-- Clicking on that button you get warning alert "Are you sure want to delete?", if you click "Ok" button that house listing card will be deleted.
+- Clicking on that button you get warning alert "Are you sure want to delete?", if you click "Ok" button that house listing will be deleted.
 <kbd>
 <img src="readme-images/3-project/2-delete/deleteListingNotification.png"/>
 <img src="readme-images/3-project/2-delete/listingDeleted.png"/>
@@ -241,7 +241,7 @@ In <b>My Listing</b> list you can <b>edit</b> and <b>delete</b> that listings. <
 <img src="readme-images/3-project/3-edit/editListingNotificationSucccess.png"/>
 </kbd>
 
-### Edit Listing
+### Update profile
 
 In <b>Profile Page</b> You see <b>edit</b> link below your email click that and your name input box color changes to red and you can edit your name and finally click apply change link to update profile name.
 <kbd>
