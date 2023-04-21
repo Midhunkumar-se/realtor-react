@@ -70,14 +70,14 @@ git clone https://github.com/Midhunkumar-se/realtor-react.git
 When you visit the Realtor application, the first page you will directed to the home page of the application.
 <img src="readme-images/2-home/homePage.png">
 
-- If you do not have an account, you will be able to access the <b> home page </b>,<b> offer page</b>,<b> rent page</b>,<b> sale page</b>, <b> sign-in page</b> and <b> listing page of all listed cards</b>. 
+- If you do not have an account, you will be able to access the <b> home page </b>,<b> offer page</b>,<b> rent page</b>,<b> sale page</b>, and <b> sign-in page</b>. 
 - On the home page header, you can see the app logo on the left side and three menus on the far right side - <b>home</b>,<b> offer</b>, and <b>sign-in</b>.
 - If you have an account and logged in to that account, the <b>sign-in</b> option will be replaced with a <b>profile</b> option, which you will see later in this documentation.
-- Below the menu header, There is a wide image along with the name of the respective house on the top left side of that image, and the cost of the respective house on the bottom left of that image. 
+- Below the menu header, There is a wide banner image along with the name of the respective house on the top left side of that image, and the cost of the respective house on the bottom left of that image. 
 - If you click on that image, you will be redirected to the <b>listing page</b>(you will see later in this section) of that clicked image.
 
 ### Offers
-- Below the wider larger image, you can see a list of <b> recent offers </b> house cards.
+- Below the banner image, you can see a list of <b> recent offers </b> house cards.
 - If you click on <b>"Show more offers"</b> or <b>"offer"</b> (marked with a red border), you will be redirected to the offers page.
 <kvb>
   <img src="readme-images/2-home/homePageOfferListing.png" height=60%>
@@ -104,7 +104,7 @@ When you visit the Realtor application, the first page you will directed to the 
   <img src="readme-images/2-home/houseListingPage.png" height=60%>
 </kvb>
 
-### Details of listed card
+### Details of listed house
 <b>1st row</b> - Name of that house along with price of the house. </br>
 <b>2nd row</b> - Address of that house. </br>
 <b>3rd row</b> - First column is category whether house is for sale or rent 2nd column is dicount price. </br>
@@ -141,7 +141,7 @@ Since the core application is protected through authentication and authorization
 
 ### Forgot Password
 If you forgot password click <b>forgot password</b> link in signIn Page or signUp Page you will directed to forgot password page.
-- Write valid email on that input, change password link will send to your email and change password.
+- Write valid email on that input, A password reset link will be sent to your email to allow you to change your password.
 <kbd>
   <img alt="Home page" src="readme-images/1-authentication/forgotPasswordPage.png"/>
   <img alt="Home page" src="readme-images/1-authentication/6-resetPassword/resetPassEmailSend.png"/>
@@ -154,14 +154,14 @@ If you forgot password click <b>forgot password</b> link in signIn Page or signU
 
 ## III - Profile Page
 
-After Successfully logged in you directed to <b>Home page</b> and in header menu <b>Sign in</b> link changed to <b>Profile</b> link.
+After successfully logging in, you will be directed to the <b>home page</b>, and the <b>'Sign in'</b> link in the header menu will change to a <b>'Profile'</b> link.
 <kbd>
   <img src="readme-images/3-project/1-creation/afterLoginMenProfile.png"/>
 </kbd>
- - After clicking <b>Profile </b> link you directed to <b>My Profile page</b>
- - In profile page you see your name and email, below that you see edit link (used to edit your profile name) and signout link(used to logout from the application).
- - Below edit link and signout link, you see <b>"Sell or rent your home"</b> button to create listing.
- - Below that button you see <b>"My Listing"</b> which is list of house cards created by you(who is authenticated into application).
+- After clicking the <b>Profile</b> link, you will be directed to the <b>My Profile</b> page.
+- On the profile page, you will see your name and email. Below that, you will find an edit link (which is used to edit your profile name) and a sign-out link (which is   used to log out from the application).
+- Below the edit and sign-out links, you will see a <b>"Sell or Rent Your Home"</b> button, which you can use to create a listing.
+- Below that button, you will find <b>"My Listings"</b>, which is a list of the house cards that you (the authenticated user) have created in the application.
  <kbd>
   <img src="readme-images/3-project/1-creation/profilePage.png"/>
   <img src="readme-images/3-project/1-creation/profilePageMyListing.png"/>
