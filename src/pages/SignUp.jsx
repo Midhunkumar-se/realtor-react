@@ -30,7 +30,9 @@ const SignUp = () => {
 
   const { emailValidate, passwordValidate, nameValidate } = validate;
 
-  const emailIsValid = email.includes("@") && email.trim() !== "";
+  const emailIsValid = /\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/.test(
+    email
+  );
   const passwordIsValid = password.length >= 6 && password.trim() !== "";
   const nameIsValid = name.length >= 3 && name.trim() !== "";
 
@@ -84,6 +86,11 @@ const SignUp = () => {
       toast.success("Sign up was successfull");
       navigate("/");
       setIsLoading(false);
+      setValidate({
+        nameValidate: true,
+        emailValidate: true,
+        passwordValidate: true,
+      });
     } catch (error) {
       if (emailIsValid) {
         setValidate((prevState) => ({
@@ -103,7 +110,6 @@ const SignUp = () => {
           nameValidate: true,
         }));
       }
-      toast.error("Something went wrong with the registration");
       setIsLoading(false);
     }
   }
@@ -122,7 +128,7 @@ const SignUp = () => {
           <form onSubmit={onSubmit} className="form-section__form">
             {!nameValidate && (
               <span className="input--warning">
-                *name length should be greater than or equal to 3
+                *name should be greater or equal to 3 characters
               </span>
             )}
             <input
@@ -139,7 +145,7 @@ const SignUp = () => {
               <span className="input--warning">*this is not a valid email</span>
             )}
             <input
-              type="email"
+              type="text"
               id="email"
               placeholder="Email address"
               className={`form-section__form-input ${
