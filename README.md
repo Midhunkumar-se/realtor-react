@@ -174,7 +174,7 @@ After clicking <b>"Sell or rent your home"</b> button in profile page.
   <img src="readme-images/3-project/1-creation/rentOrSellBtn.png"/>
 </kbd><br/>
 
-- You will directed to <b>"Create Listing page"</b>.
+- You will directed to <b>"Create Listing page"</b>.<br/>
 <b>1st row</b> - Click the button according to whether you are going to sell or rent your house.</br>
 <b>2nd row</b> - Enter the name.</br>
 <b>3rd row</b> - Enter the number of bedrooms and bathrooms.</br>
@@ -213,7 +213,7 @@ After clicking <b>"Sell or rent your home"</b> button in profile page.
 
 ### Delete Listing
 
-In <b>My Listing</b> list you can <b>edit</b> and <b>delete</b> that listings. <br/>
+In <b>'My Listing'</b> list you can <b>edit</b> and <b>delete</b> those listings.<br/>
 - In <b>My Listing</b>, on the first row and second column card, you will see a delete button marked with a red border. It is located in the bottom left corner.<br/>
 <kbd>
 <img src="readme-images/3-project/2-delete/deleteListing.png"/>
@@ -237,28 +237,40 @@ In <b>My Listing</b> list you can <b>edit</b> and <b>delete</b> that listings. <
 
 - Clicking on that button you will directed to <b>Edit Listing</b> page. <b>Edit Listing</b> process is exact same as <b>Create Listing</b>.
 <kbd>
-<img src="readme-images/3-project/3-edit/editListingPage.png"/>
-<img src="readme-images/3-project/3-edit/editListingNotificationSuccess.png"/>
+<img src="readme-images/3-project/3-edit/editLisitngPage.png"/>
+<img src="readme-images/3-project/3-edit/editListingNotificationSucccess.png"/>
 </kbd>
 
+### Edit Listing
+
+In <b>Profile Page</b> You see <b>edit</b> link below your email click that and your name input box color changes to red and you can edit your name and finally click apply change link to update profile name.
+<kbd>
+<img src="readme-images/3-project/4-editProfileName/updateProfileName.png"/>
+<img src="readme-images/3-project/4-editProfileName/editingProfileName.png"/>
+<img src="readme-images/3-project/4-editProfileName/applyEditedProfileName.png"/>
+<img src="readme-images/3-project/4-editProfileName/applyEditingProfileNameSuccess.png"/>
+</kbd>
+
+### Sign out
+
+In <b>Profile Page</b> You see <b>sign out</b> link below your email click that link to logout from the application and you redirected to <b>home page</b>.
+- In header menu <b>Profile</b> link changes to <b>Sign in</b> link.
+<kbd>
+<img src="readme-images/3-project/5-signOut/signOut.png"/>
+  <img src="readme-images/2-home/homePage.png">
+</kbd>
 
   ##### And that wraps it up ! 
   
   ## Author
 
-👤 **Quentin Couissinier**
+👤 **Midhun Kumar**
 
-- Linkedin: [@Quentin Couissinier](https://www.linkedin.com/in/quentin-couissinier/)
-- Github: [@Quentin Couissinier](https://github.com/heliosCreation)
+- Linkedin: [@Midhun Kumar](https://www.linkedin.com/in/midhun-kumar-30b108273/)
+- Github: [@Midhun Kumar](https://github.com/Midhunkumar-se)
 
 ## Show your support
 
 Please ⭐️ this repository if you liked the project!
 
 
-## 📝 License
-
-Copyright © 2022 [@Quentin Couissinier](https://github.com/heliosCreation).<br />
-This project is [MIT](https://github.com/heliosCreation/BugsTracker/blob/main/LICENSE) licensed.
-
----
