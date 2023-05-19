@@ -15,11 +15,7 @@ import { toast } from "react-toastify";
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [validate, setValidate] = useState({
-    emailValidate: true,
-    passwordValidate: true,
-    nameValidate: true,
-  });
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -27,8 +23,6 @@ const SignUp = () => {
   });
 
   const { name, email, password } = formData;
-
-  const { emailValidate, passwordValidate, nameValidate } = validate;
 
   const emailIsValid = /\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/.test(
     email
@@ -47,23 +41,17 @@ const SignUp = () => {
 
   async function onSubmit(e) {
     e.preventDefault();
+    if (!nameIsValid) {
+      toast.error("Name should be greater than or equal to 3 characters");
+      return;
+    }
     if (!emailIsValid) {
-      setValidate((prevState) => ({
-        ...prevState,
-        emailValidate: false,
-      }));
+      toast.error("Enter valid email");
+      return;
     }
     if (!passwordIsValid) {
-      setValidate((prevState) => ({
-        ...prevState,
-        passwordValidate: false,
-      }));
-    }
-    if (!nameIsValid) {
-      setValidate((prevState) => ({
-        ...prevState,
-        nameValidate: false,
-      }));
+      toast.error("Password should be greater than or equal to 6 characters");
+      return;
     }
     setIsLoading(true);
     try {
@@ -86,30 +74,8 @@ const SignUp = () => {
       toast.success("Sign up was successfull");
       navigate("/");
       setIsLoading(false);
-      setValidate({
-        nameValidate: true,
-        emailValidate: true,
-        passwordValidate: true,
-      });
     } catch (error) {
-      if (emailIsValid) {
-        setValidate((prevState) => ({
-          ...prevState,
-          emailValidate: true,
-        }));
-      }
-      if (passwordIsValid) {
-        setValidate((prevState) => ({
-          ...prevState,
-          passwordValidate: true,
-        }));
-      }
-      if (nameIsValid) {
-        setValidate((prevState) => ({
-          ...prevState,
-          nameValidate: true,
-        }));
-      }
+      toast.error(error.message);
       setIsLoading(false);
     }
   }
@@ -126,47 +92,30 @@ const SignUp = () => {
         </div>
         <div className="form-section__form-wrap">
           <form onSubmit={onSubmit} className="form-section__form">
-            {!nameValidate && (
-              <span className="input--warning">
-                *name should be greater or equal to 3 characters
-              </span>
-            )}
             <input
               type="text"
               id="name"
               value={name}
               onChange={onChange}
               placeholder="Full name"
-              className={`form-section__form-input ${
-                !nameValidate ? "form-section__form-input--warning" : ""
-              }`}
+              className={`form-section__form-input`}
             />
-            {!emailValidate && (
-              <span className="input--warning">*this is not a valid email</span>
-            )}
+
             <input
               type="text"
               id="email"
               placeholder="Email address"
-              className={`form-section__form-input ${
-                !emailValidate ? "form-section__form-input--warning" : ""
-              }`}
+              className={`form-section__form-input`}
               value={email}
               onChange={onChange}
             />
-            {!passwordValidate && (
-              <span className="input--warning">
-                *password length should be greater than or equal to 6
-              </span>
-            )}
+
             <div className="form-section__form-input-wrap">
               <input
                 type={showPassword ? "text" : "password"}
                 id="password"
                 placeholder="Password"
-                className={`form-section__form-input ${
-                  !passwordValidate ? "form-section__form-input--warning" : ""
-                }`}
+                className={`form-section__form-input`}
                 onChange={onChange}
                 value={password}
               />
@@ -191,9 +140,7 @@ const SignUp = () => {
                 <Link to="/forgot-password">Forgot password?</Link>
               </p>
             </div>
-            {/* <button className="form-section__btn-signing" type="submit">
-              {isLoading ? "Signing In..." : "Sign up"}
-            </button> */}
+
             {isLoading ? (
               <button
                 disabled

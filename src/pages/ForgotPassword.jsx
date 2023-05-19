@@ -29,7 +29,7 @@ const ForgotPassword = () => {
 
   return (
     <section className="form-section">
-      <h1 className=" form-section__title">Forgot Password</h1>
+      <h1 className=" form-section__title">Reset Password</h1>
       <div className=" form-section__form-wrapper">
         <div className="form-section__image-wrap">
           <img

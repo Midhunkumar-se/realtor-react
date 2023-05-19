@@ -159,7 +159,6 @@ export default function EditListing() {
           },
           () => {
             // Handle successful uploads on complete
-            // For instance, get the download URL: https://firebasestorage.googleapis.com/...
             getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
               resolve(downloadURL);
             });
@@ -353,6 +352,7 @@ export default function EditListing() {
                 max="90"
                 step="any"
                 className="create-listing__form-input"
+                placeholder="Ex: 13.095631"
               />
             </div>
             <div className="" style={{ marginLeft: "1.4rem" }}>
@@ -367,6 +367,7 @@ export default function EditListing() {
                 max="180"
                 step="any"
                 className="create-listing__form-input"
+                placeholder="Ex: 80.207620"
               />
             </div>
           </div>
@@ -512,9 +513,3 @@ export default function EditListing() {
     </main>
   );
 }
-
-// Good neighbourhood awesome community and the nearby shopping mall and many more.
-// 42.617771
-// -121.801095
-// 153, rosario st, klamath county, oregon state, usa
-// A nice house with lake view

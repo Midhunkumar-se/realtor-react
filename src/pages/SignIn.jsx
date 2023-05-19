@@ -38,7 +38,7 @@ const SignIn = () => {
       }
       setIsLoading(false);
     } catch (error) {
-      toast.error("Bad user credentials");
+      toast.error(error.message);
       setIsLoading(false);
     }
   }

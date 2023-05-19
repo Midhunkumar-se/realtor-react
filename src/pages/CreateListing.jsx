@@ -31,8 +31,8 @@ export default function CreateListing() {
     offer: false,
     regularPrice: 0,
     discountedPrice: 0,
-    latitude: 0,
-    longitude: 0,
+    latitude: 13.095631,
+    longitude: 80.20762,
     images: {},
   });
   const {
@@ -325,6 +325,7 @@ export default function CreateListing() {
                 max="90"
                 step="any"
                 className="create-listing__form-input"
+                placeholder="Ex: 13.095631"
               />
             </div>
             <div className="" style={{ marginLeft: "1.4rem" }}>
@@ -339,6 +340,7 @@ export default function CreateListing() {
                 max="180"
                 step="any"
                 className="create-listing__form-input"
+                placeholder="Ex: 80.207620"
               />
             </div>
           </div>

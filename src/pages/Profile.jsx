@@ -4,6 +4,7 @@ import "./Profile.scss";
 import { useEffect, useState } from "react";
 import { getAuth, updateProfile } from "firebase/auth";
 import { toast } from "react-toastify";
+import Notiflix from "notiflix";
 import {
   collection,
   deleteDoc,
@@ -88,15 +89,35 @@ export default function Profile() {
     fetchUserListings();
   }, [auth.currentUser.uid]);
 
-  async function onDelete(listingId) {
-    if (window.confirm("Are you sure you want to delete?")) {
-      await deleteDoc(doc(db, "listings", listingId));
-      const updatedListings = listings.filter(
-        (listing) => listing.id !== listingId
-      );
-      setListings(updatedListings);
-      toast.success("Successfully deleted the listing");
-    }
+  const confirmDelete = (listingId) => {
+    Notiflix.Confirm.show(
+      "Delete Product!!!",
+      "You are about to delete this product",
+      "Delete",
+      "Cancel",
+      function okCb() {
+        deleteListing(listingId);
+      },
+      function cancelCb() {
+        console.log("Delete Canceled");
+      },
+      {
+        width: "320px",
+        borderRadius: "3px",
+        titleColor: "red",
+        okButtonBackground: "red",
+        cssAnimationStyle: "zoom",
+      }
+    );
+  };
+
+  async function deleteListing(listingId) {
+    await deleteDoc(doc(db, "listings", listingId));
+    const updatedListings = listings.filter(
+      (listing) => listing.id !== listingId
+    );
+    setListings(updatedListings);
+    toast.success("Successfully deleted the listing");
   }
 
   function onEdit(listingId) {
@@ -175,7 +196,7 @@ export default function Profile() {
                   key={listing.id}
                   id={listing.id}
                   listing={listing.data}
-                  onDelete={() => onDelete(listing.id)}
+                  onDelete={() => confirmDelete(listing.id)}
                   onEdit={() => onEdit(listing.id)}
                 />
               ))}
