@@ -112,7 +112,7 @@ const SignIn = () => {
             </div>
             <OAuth />
           </form>
-          {/* <div className="form-section__border-line"></div>
+          <div className="form-section__border-line"></div>
           <div
             style={{
               display: "flex",
@@ -133,7 +133,7 @@ const SignIn = () => {
               </span>{" "}
               123456
             </div>
-          </div> */}
+          </div>
         </div>
       </div>
     </section>
